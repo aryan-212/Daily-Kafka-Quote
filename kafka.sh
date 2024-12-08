@@ -27,7 +27,7 @@ daily_quote() {
     local checker_file="/tmp/daily_quote_checker"
     # Check if quote has already been displayed
     if [ ! -f "$checker_file" ]; then
-        grep "^$(date '+%d %B')" "$HOME/Kafka.txt" | shuf -n 1 | awk '{printf "\033[1;31m%s %s\033[0m\n%s\n", $1, $2, substr($0,index($0,$3))}'
+        grep "^$(date '+%1d %B')" "$HOME/Kafka.txt" | shuf -n 1 | awk '{printf "\033[1;31m%s %s\033[0m\n%s\n", $1, $2, substr($0,index($0,$3))}'
         # Create checker file to prevent repeated display
         touch "$checker_file"
     fi
@@ -42,7 +42,7 @@ function daily_quote
     set checker_file "/tmp/daily_quote_checker"
     # Check if quote has already been displayed
     if not test -f $checker_file
-        grep "^"(date "+%d %B") "$HOME/Kafka.txt" | shuf -n 1 | awk '{printf "\033[1;31m%s %s\033[0m\n%s\n", $1, $2, substr($0,index($0,$3))}'
+        grep "^"(date "+%1d %B") "$HOME/Kafka.txt" | shuf -n 1 | awk '{printf "\033[1;31m%s %s\033[0m\n%s\n", $1, $2, substr($0,index($0,$3))}'
         # Create checker file to prevent repeated display
         touch $checker_file
     end
@@ -72,6 +72,6 @@ fi
 
 # Execute the command immediately to show a quote if not already displayed
 if [ ! -f "$checker_file" ]; then
-  grep "^$(date "+%d %B")" Kafka.txt | shuf -n 1 | awk '{printf "\033[1;31m%s %s\033[0m\n%s\n", $1, $2, substr($0,index($0,$3))}'
+  grep "^$(date "+%1d %B")" Kafka.txt | shuf -n 1 | awk '{printf "\033[1;31m%s %s\033[0m\n%s\n", $1, $2, substr($0,index($0,$3))}'
   touch "$checker_file"
 fi
