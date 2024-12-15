@@ -4,7 +4,7 @@
 checker_file="/tmp/daily_quote_checker"
 
 # Download the file and check if successful
-if ! curl -o Kafka.txt 'https://drive.usercontent.google.com/download?id=1NG-d085E20ql-2mUTaWY7ndQMjFb9KTk&export=download&authuser=0'; then
+if ! curl -o ~/Kafka.txt 'https://drive.usercontent.google.com/download?id=1NG-d085E20ql-2mUTaWY7ndQMjFb9KTk&export=download&authuser=0'; then
   echo "Failed to download Kafka.txt"
   exit 1
 fi
